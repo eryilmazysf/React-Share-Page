@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useHistory } from "react-router-dom";
 import {
   Button,
   TextField,
@@ -116,10 +117,11 @@ function Signup() {
               SignUp with Google
             </Button>
           </Grid>
-          {/* 
-            //TODO: Add sign in text & links
-            */}
         </Grid>
+        <div style={{ marginTop: 10, fontWeight: "bold" }}>
+          If you have an account?
+          <Link to="/login"> Login Page</Link>
+        </div>
       </form>
     </Container>
   );

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import {
   Button,
   TextField,
@@ -43,6 +44,7 @@ const initialValues = {
 function Signin() {
   const [loginError, setLoginError] = useState(null);
   const signinStyles = stylesFunc();
+  const history = useHistory();
 
   const handleGoogleButtonClick = () => {
     firebase.useGoogleProvider();
@@ -102,6 +104,7 @@ function Signin() {
                   variant="contained"
                   color="primary"
                   fullWidth
+                  onClick={() => history.push("/")}
                 >
                   Login
                 </Button>
@@ -120,9 +123,14 @@ function Signin() {
             <p style={{ textAlign: "center", color: "red" }}>
               <small>{loginError}</small>
             </p>
-            {/* 
-            //TODO: Add register & forgot password text & links
-            */}
+            <div style={{ marginTop: 10, fontWeight: "bold" }}>
+              If you forgot your password?
+              <Link to="/forgot-password"> Forgot Password</Link>
+            </div>
+            <div style={{ marginTop: 10, fontWeight: "bold" }}>
+              If you do not have an account?
+              <Link to="/register"> Register Page</Link>
+            </div>
           </form>
         )}
       </Formik>
