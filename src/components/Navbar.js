@@ -1,4 +1,4 @@
-import React, { useContext, useCallback, useMemo } from "react";
+import React, { useContext, useCallback } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
@@ -29,7 +29,6 @@ export default function Navbar() {
   const classes = useStyles();
   const history = useHistory();
 
-  const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleMenu = (event) => {
@@ -38,7 +37,7 @@ export default function Navbar() {
 
   const handleHomeClick = useCallback(() => {
     history.push(`/`);
-  }, []);
+  }, [history]);
 
   const handleClose = useCallback(() => {
     setAnchorEl(null);
