@@ -37,7 +37,8 @@ export default function Navbar() {
 
   const handleHomeClick = useCallback(() => {
     history.push(`/`);
-  }, [history]);
+    // eslint-disable-next-line
+  }, []);
 
   const handleClose = useCallback(() => {
     setAnchorEl(null);
